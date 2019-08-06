@@ -1,0 +1,25 @@
+{
+  "name": "Fake-Tinder",
+  "version": "1.0.0",
+  "description": "[Node.js / React.js / MongoDB / React Native ] A refactoring of one of the most famous dating application.",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon api/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhermebkel/Fake-Tinder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilhermebkel/Fake-Tinder/issues"
+  },
+  "homepage": "https://guilherr.me/Fake-Tinder",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
