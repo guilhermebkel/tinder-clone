@@ -3,7 +3,10 @@ async function boot(){
     require('dotenv').config()
 
     console.log("=> Starting server...")
-    require('./core/server').setup()
+    await require('./core/server').setup()
+
+    console.log("=> Connecting to database...")
+    await require('./core/database').setup()
 }
 
 boot()
