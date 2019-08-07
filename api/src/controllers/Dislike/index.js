@@ -8,7 +8,8 @@ module.exports = {
 
 async function dislikeUser(req, res){
     try{
-        const user = await DislikeService.dislike(req.params.userId, req.headers.user)
+        const credentials = req.headers
+        const user = await DislikeService.dislike(credentials, req.params.userId)
         res.json(user)
     }
     catch(error){

@@ -5,8 +5,9 @@ module.exports = {
     like
 }
 
-async function like(userId, user){
+async function like(credentials, userId){
     try{
+        const { user } = credentials
         const loggedUser = HelperService.loggedUser(user)
         const targetUser = await User.findById(userId)
     

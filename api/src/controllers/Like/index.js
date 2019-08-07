@@ -8,7 +8,8 @@ module.exports = {
 
 async function likeUser(req, res){
     try{
-        const user = await LikeService.like(req.params.userId, req.headers.user)
+        const credentials = req.headers
+        const user = await LikeService.like(credentials, req.params.userId)
         res.json(user)
     }
     catch(error){
