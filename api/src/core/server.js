@@ -11,7 +11,7 @@ async function setup(){
     })
 
     server.use(express.json())
-    
+
     require('../controllers').config(server)
 
     server.listen(process.env.PORT, () => {

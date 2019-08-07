@@ -1,8 +1,7 @@
 module.exports = {
     config(server){
-        server.post('/devs', (req, res) => {
-            console.log(req.body)
-            res.json({result: true})
-        })
+        require('./User').config(server)
+        require('./Like').config(server)
+        require('./Dislike').config(server)
     }
 }
