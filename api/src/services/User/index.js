@@ -14,7 +14,7 @@ async function create(data){
         const userExists = await User.findOne({ user })
     
         if(userExists){
-            return console.log(userExists)
+            return { status: "User already exists" }
         }
     
         const response = await axios.get(`https://api.github.com/users/${user}`)
