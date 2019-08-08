@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Fake-Tinder/static/css/main.1d44caa7.chunk.css",
+    "main.js": "/Fake-Tinder/static/js/main.c68e0858.chunk.js",
+    "main.js.map": "/Fake-Tinder/static/js/main.c68e0858.chunk.js.map",
+    "runtime~main.js": "/Fake-Tinder/static/js/runtime~main.3e4ef5a4.js",
+    "runtime~main.js.map": "/Fake-Tinder/static/js/runtime~main.3e4ef5a4.js.map",
+    "static/js/2.96e18159.chunk.js": "/Fake-Tinder/static/js/2.96e18159.chunk.js",
+    "static/js/2.96e18159.chunk.js.map": "/Fake-Tinder/static/js/2.96e18159.chunk.js.map",
+    "index.html": "/Fake-Tinder/index.html",
+    "precache-manifest.74d077316a41897e74a60adf64556ceb.js": "/Fake-Tinder/precache-manifest.74d077316a41897e74a60adf64556ceb.js",
+    "service-worker.js": "/Fake-Tinder/service-worker.js",
+    "static/css/main.1d44caa7.chunk.css.map": "/Fake-Tinder/static/css/main.1d44caa7.chunk.css.map",
+    "static/media/dislike.svg": "/Fake-Tinder/static/media/dislike.d4ec34e8.svg",
+    "static/media/like.svg": "/Fake-Tinder/static/media/like.542059a4.svg",
+    "static/media/logo.svg": "/Fake-Tinder/static/media/logo.6a01ceef.svg"
+  }
+}
