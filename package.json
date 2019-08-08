@@ -1,10 +1,28 @@
 {
-  "name": "Fake-Tinder",
+  "name": "fake-tinder",
   "version": "1.0.0",
   "description": "[Node.js / React.js / MongoDB / React Native ] A refactoring of one of the most famous dating application.",
-  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.8",
+    "nodemon": "^1.19.1"
+  },
   "scripts": {
-    "server": "nodemon api/src/index.js"
+    "server": "nodemon api/src/index.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "repository": {
     "type": "git",
@@ -16,13 +34,17 @@
   "bugs": {
     "url": "https://github.com/guilhermebkel/Fake-Tinder/issues"
   },
-  "homepage": "https://guilherr.me/Fake-Tinder",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.6.8",
-    "nodemon": "^1.19.1"
-  }
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "https://guilherr.me/Fake-Tinder"
 }
