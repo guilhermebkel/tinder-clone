@@ -14,7 +14,7 @@ async function create(data){
         const userExists = await User.findOne({ user })
     
         if(userExists){
-            return { status: "User already exists" }
+            return userExists
         }
     
         const response = await axios.get(`https://api.github.com/users/${user}`)
@@ -28,11 +28,11 @@ async function create(data){
             avatar
         })
     
-        return newUser
+        return { result: true, data: newUser }
     }
     catch(error){
         console.error(error)
-        return { result: false }
+        return { result: false, error }
     }
 }
 

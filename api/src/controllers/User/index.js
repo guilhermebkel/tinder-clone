@@ -9,11 +9,11 @@ module.exports = {
 
 async function createUser(req, res){
     try{
-        const newUser = await UserService.create(req.body)
-        res.json({result: true, data: newUser})
+        const user = await UserService.create(req.body)
+        res.json({ result: true, data: user })
     }
     catch(error){
-        res.json({ result: false })
+        res.json({ result: false, error })
         console.error(error)
     }
 }
