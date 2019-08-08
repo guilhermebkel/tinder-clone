@@ -10,7 +10,7 @@ module.exports = {
 async function createUser(req, res){
     try{
         const user = await UserService.create(req.body)
-        res.json({ result: true, data: user })
+        res.json({ result: true, user })
     }
     catch(error){
         res.json({ result: false, error })
@@ -22,7 +22,7 @@ async function getUsers(req, res){
     try{
         const credentials = req.headers
         const users = await UserService.get(credentials)
-        res.json({ result: true, data: users})
+        res.json({ result: true, users})
     }
     catch(error){
         res.json({ result: false })

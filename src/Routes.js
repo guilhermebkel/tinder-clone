@@ -8,7 +8,7 @@ export default function Routes(){
     return(
         <BrowserRouter>
             <Route path="/Fake-Tinder/" exact component={Login} />
-            <Route path="/Fake-Tinder/main" component={Main} />
+            <Route path="/Fake-Tinder/user/:id" component={Main} />
         </BrowserRouter>
     )
 }

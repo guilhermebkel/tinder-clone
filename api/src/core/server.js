@@ -16,7 +16,7 @@ async function setup(){
 
     require('../controllers').config(server)
 
-    server.listen(process.env.SERVER_PORT, () => {
+    server.listen(process.env.PORT || process.env.SERVER_PORT, () => {
         console.log(`- Server running at port ${process.env.SERVER_PORT}`)
     })
 }

@@ -17,7 +17,8 @@ export default function Login({ history }){
         })
 
         console.log(response)
-        //history.push('/Fake-Tinder/main')
+        const { _id } = response.data.user
+        history.push(`/Fake-Tinder/user/${_id}`)
     }
 
     return (
