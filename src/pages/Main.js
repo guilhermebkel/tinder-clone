@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Api from '../services/Api'
 
@@ -10,6 +11,8 @@ import './Main.css'
 
 export default function Main({ match }){
 
+    const [users, setUsers] = useState([])
+
     useEffect(() => {
         async function loadUsers(){
             const response = await Api.get('/users', {
@@ -17,61 +20,60 @@ export default function Main({ match }){
                     user: match.params.id
                 }
             })
-            console.log(response)
+            
+            setUsers(response.data.users)
         }
         loadUsers()
     }, [match.params.id])
 
+    async function handleLike(id){
+        const response = await Api.post(`/users/${id}/likes`, null, {
+            headers: {
+                user: match.params.id
+            }
+        })
+
+        if(response.data.user.match) alert("Match!")
+    }
+
+    async function handleDislike(id){
+        await Api.post(`/users/${id}/dislikes`, null, {
+            headers: {
+                user: match.params.id
+            }
+        })
+
+        setUsers(users.filter(user => user._id !== id))
+    }
+
     return (
         <div className="main-container">
-            <img src={TinderLogo} alt="Tinder Logo" />
-            <ul>
-                <li>
-                    <img src="https://avatars2.githubusercontent.com/u/42042433?v=4" alt="" />
-                    <footer>
-                        <strong>Guilherme Mota</strong>
-                        <p>A Full-stack web developer</p>
-                    </footer>
-                    <div className="buttons">
-                        <button type="button">
-                            <img src={DislikeIcon} alt="Dislike"/>
-                        </button>
-                        <button type="button">
-                            <img src={LikeIcon} alt="Dislike"/>
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://avatars2.githubusercontent.com/u/42042433?v=4" alt="" />
-                    <footer>
-                        <strong>Guilherme Mota</strong>
-                        <p>A Full-stack web developer</p>
-                    </footer>
-                    <div className="buttons">
-                        <button type="button">
-                            <img src={DislikeIcon} alt="Dislike"/>
-                        </button>
-                        <button type="button">
-                            <img src={LikeIcon} alt="Dislike"/>
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://avatars2.githubusercontent.com/u/42042433?v=4" alt="" />
-                    <footer>
-                        <strong>Guilherme Mota</strong>
-                        <p>A Full-stack web developer</p>
-                    </footer>
-                    <div className="buttons">
-                        <button type="button">
-                            <img src={DislikeIcon} alt="Dislike"/>
-                        </button>
-                        <button type="button">
-                            <img src={LikeIcon} alt="Dislike"/>
-                        </button>
-                    </div>
-                </li>
-            </ul>
+            <Link to="/Fake-Tinder/">
+                <img src={TinderLogo} alt="Tinder Logo" />
+            </Link>
+                { users.length ? (
+                    <ul>
+                        {users.map(user => (
+                            <li key={user._id}>
+                                <img src={user.avatar} alt="" />
+                                <footer>
+                                    <strong>{user.name}</strong>
+                                    <p>{user.bio}</p>
+                                </footer>
+                                <div className="buttons">
+                                    <button type="button" onClick={() => handleDislike(user._id)}>
+                                        <img src={DislikeIcon} alt="Dislike"/>
+                                    </button>
+                                    <button type="button" onClick={() => handleLike(user._id)}>
+                                        <img src={LikeIcon} alt="Dislike"/>
+                                    </button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="empty">Acabou :(</div>
+                )}
         </div>
     )
 }

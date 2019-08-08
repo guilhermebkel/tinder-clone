@@ -10,7 +10,7 @@ async function likeUser(req, res){
     try{
         const credentials = req.headers
         const user = await LikeService.like(credentials, req.params.userId)
-        res.json({ result: true, data: user })
+        res.json({ result: true, user })
     }
     catch(error){
         res.json({ result: false })

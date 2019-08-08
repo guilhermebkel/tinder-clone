@@ -5,9 +5,10 @@ module.exports = {
     dislike
 }
 
-async function dislike(userId, user){
+async function dislike(credentials, userId){
     try{
-        const loggedUser = HelperService.loggedUser(user)
+        const { user } = credentials
+        const loggedUser = await HelperService.loggedUser(user)
         const targetUser = await User.findById(userId)
     
         if (!targetUser) return
