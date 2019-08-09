@@ -13,6 +13,13 @@
     margin-top: 50px;
 }
 
+@media only screen and (max-width:500px) {
+    .main-container ul {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 50px 15px 15px 15px;
+    }
+}
+
 .main-container ul li {
     display: flex;
     flex-direction: column;
